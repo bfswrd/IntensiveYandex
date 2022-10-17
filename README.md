@@ -1,3 +1,5 @@
+![project workflow](https://github.com/bfswrd/IntensiveYandex/blob/main/.github/workflows/python-package.yml/badge.svg)
+
 # Оглавление
 
 * [Запуск](#Запуск)
@@ -26,7 +28,7 @@ Windows
 git clone git@github.com:bfswrd/IntensiveYandex
 cd IntensiveYandex
 python -m venv venv
-source venv/bin/activate
+cd venv/bin/activate
 pip install -r requirements.txt
 ``` 
 
@@ -37,7 +39,7 @@ git clone git@github.com:bfswrd/IntensiveYandex
 cd IntensiveYandex
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ``` 
 
 ##### Или запустите
@@ -45,13 +47,13 @@ pip install -r requirements.txt
 Windows
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/bin/activate;pip install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;cd venv/bin/activate;pip install -r requirements.txt
 ```
 
 Linux/Mac OS
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip3 install -r requirements.txt
 ```
 
 #### Создайте Env ↓
