@@ -19,6 +19,8 @@ DEBUG=False # Все как в питоне True/False
 ### Старт
 
 ```
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 python manage.py runserver 127.0.0.1:8000
 ```
