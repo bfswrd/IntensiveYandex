@@ -1,4 +1,4 @@
-![project workflow](https://github.com/bfswrd/IntensiveYandex/blob/main/.github/workflows/python-package.yml/badge.svg)
+![project workflow](https://github.com/bfswrd/IntensiveYandex/actions/workflows/python-package.yml/badge.svg)
 
 # Оглавление
 
