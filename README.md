@@ -40,7 +40,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ``` 
 
-###### Или запустите
+##### Или запустите
 
 Windows/Mac OS
 
