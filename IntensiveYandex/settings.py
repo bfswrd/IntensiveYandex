@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Task1.urls'
+ROOT_URLCONF = 'IntensiveYandex.urls'
 
 TEMPLATES = [
     {

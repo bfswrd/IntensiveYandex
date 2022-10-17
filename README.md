@@ -20,20 +20,20 @@ Django 3.2.16
 
 Последовательно выполните команды
 
-Windows/Mac OS
+Windows
 
 ```bash
-git clone https://github.com/bfswrd/IntensiveYandex
+git clone git@github.com:bfswrd/IntensiveYandex
 cd IntensiveYandex
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ``` 
 
-Linux
+Linux/Mac OS
 
 ```bash
-git clone https://github.com/bfswrd/IntensiveYandex
+git clone git@github.com:bfswrd/IntensiveYandex
 cd IntensiveYandex
 python3 -m venv venv
 source venv/bin/activate
@@ -42,16 +42,16 @@ pip install -r requirements.txt
 
 ##### Или запустите
 
-Windows/Mac OS
+Windows
 
 ```bash
-git clone https://github.com/bfswrd/IntensiveYandex|cd IntensiveYandex|python -m venv venv|source venv/bin/activate|pip install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/bin/activate;pip install -r requirements.txt
 ```
 
-Linux
+Linux/Mac OS
 
 ```bash
-git clone https://github.com/bfswrd/IntensiveYandex|cd IntensiveYandex|python3 -m venv venv|source venv/bin/activate|pip install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip install -r requirements.txt
 ```
 
 #### Создайте Env ↓
@@ -79,13 +79,13 @@ DEBUG=<Одно из True/False>
 
 ### Старт
 
-Windows/Mac OS
+Windows
 
 ```bash
 python manage.py runserver 127.0.0.1:8000
 ```
 
-Linux
+Linux/Mac OS
 
 ```bash
 python3 manage.py runserver 127.0.0.1:8000
