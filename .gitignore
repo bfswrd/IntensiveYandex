@@ -1,7 +1,6 @@
 # Idea / Misc / Github
 .idea
 .DS_Store
-.github
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
