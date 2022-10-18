@@ -28,7 +28,7 @@ Windows
 git clone git@github.com:bfswrd/IntensiveYandex
 cd IntensiveYandex
 python -m venv venv
-cd venv/bin/activate
+source venv/Scripts/activate
 pip install -r requirements.txt
 ``` 
 
@@ -47,7 +47,7 @@ pip3 install -r requirements.txt
 Windows
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;cd venv/bin/activate;pip install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/Scripts/activate;pip install -r requirements.txt
 ```
 
 Linux/Mac OS
