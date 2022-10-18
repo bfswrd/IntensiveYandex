@@ -73,7 +73,7 @@ touch .env
 ```text
 SECRET_KEY=<Вами сгенерированный ключ>
 DEBUG=<Одно из True/False>
-ALLOWED_HOSTS=<ip разделенные запятой (",")>
+ALLOWED_HOSTS=<ip, разделенные запятой (",")>
 ```
 
 #### Можно запускать ↓
