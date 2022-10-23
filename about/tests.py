@@ -1,3 +1,8 @@
-# from django.test import TestCase
+from django.test import Client, TestCase
 
-# Create your tests here.
+
+class AboutURLTests(TestCase):
+    # Check homepage endpoint
+    def test_about_endpoint(self):
+        response = Client().get(path="/about/")
+        self.assertEqual(response.status_code, 200)

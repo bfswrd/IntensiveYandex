@@ -1,3 +1,30 @@
-# from django.test import TestCase
+from django.test import Client, TestCase
 
-# Create your tests here.
+
+class CatalogURLTests(TestCase):
+    # Check catalog endpoint
+    def test_catalog_endpoint(self):
+        response = Client().get(path="/catalog/")
+        self.assertEqual(response.status_code, 200)
+
+
+class CatalogItemsURLTests(TestCase):
+    # Digit > 0
+    def test_catalog_item_int_endpoint(self):
+        response = Client().get(path="/catalog/123/")
+        self.assertEqual(response.status_code, 200)
+
+    # Digit = 0
+    def test_catalog_item_zero_endpoint(self):
+        response = Client().get(path="/catalog/0/")
+        self.assertEqual(response.status_code, 404)
+
+    # Digit < 0
+    def test_catalog_item_negative_int_endpoint(self):
+        response = Client().get(path="/catalog/-123/")
+        self.assertEqual(response.status_code, 404)
+
+    # Str
+    def test_catalog_item_str_endpoint(self):
+        response = Client().get(path="/catalog/str/")
+        self.assertEqual(response.status_code, 404)
