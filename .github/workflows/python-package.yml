@@ -1,13 +1,5 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
 name: Python package
 
-on:
-  push:
-    branches: [ ]
-  pull_request:
-    branches: [ ]
 jobs:
   build:
 
@@ -31,5 +23,3 @@ jobs:
       - name: Lint with flake8
         run: |
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      - name: Run tests
-          python manage.py test
