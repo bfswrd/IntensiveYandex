@@ -24,7 +24,23 @@ class CatalogItemsURLTests(TestCase):
         response = Client().get(path="/catalog/-123/")
         self.assertEqual(response.status_code, 404)
 
+    # Digit with dot
+    def test_catalog_item_float_endpoint(self):
+        response = Client().get(path="/catalog/1.23/")
+        self.assertEqual(response.status_code, 404)
+
     # Str
     def test_catalog_item_str_endpoint(self):
         response = Client().get(path="/catalog/str/")
         self.assertEqual(response.status_code, 404)
+
+    # Str + Int
+    def test_catalog_item_str_int_endpoint(self):
+        response = Client().get(path="/catalog/str123/")
+        self.assertEqual(response.status_code, 404)
+
+    # Int + Str
+    def test_catalog_item_int_str_endpoint(self):
+        response = Client().get(path="/catalog/123str/")
+        self.assertEqual(response.status_code, 404)
+
