@@ -33,3 +33,14 @@ class CatalogItemsURLTests(TestCase):
     def test_catalog_item_str_endpoint(self):
         response = Client().get(path="/catalog/str/")
         self.assertEqual(response.status_code, 404)
+
+    # Str + Int
+    def test_catalog_item_str_int_endpoint(self):
+        response = Client().get(path="/catalog/str123/")
+        self.assertEqual(response.status_code, 404)
+
+    # Int + Str
+    def test_catalog_item_int_str_endpoint(self):
+        response = Client().get(path="/catalog/123str/")
+        self.assertEqual(response.status_code, 404)
+
