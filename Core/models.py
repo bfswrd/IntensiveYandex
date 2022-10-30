@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import validate_slug
 
 
 class CommonCatalog(models.Model):
@@ -10,7 +11,12 @@ class CommonCatalog(models.Model):
 
 
 class Slug(models.Model):
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(
+        max_length=200, unique=True,
+        validators=[
+            validate_slug,
+        ],
+    )
 
     class Meta:
         abstract = True
