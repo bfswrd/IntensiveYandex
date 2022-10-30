@@ -12,11 +12,25 @@ class Category(CommonCatalog, Slug):
             MinValueValidator(1),
             MaxValueValidator(32766),
         ],
+        verbose_name="Вес",
+        help_text="Это поле отвечает за вес товара"
     )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "категорию"
+        verbose_name_plural = "Категории"
 
 
 class Tag(CommonCatalog, Slug):
-    pass
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "тег"
+        verbose_name_plural = "Теги"
 
 
 class Item(CommonCatalog):
@@ -24,7 +38,24 @@ class Item(CommonCatalog):
         validators=[
             validate_must_be_param("превосходно", "прекрасно"),
         ],
+        verbose_name="Описание",
+        help_text=f"Это поле отвечает за описание товара"
     )
 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, related_name="tag")
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE,
+        verbose_name="Категория",
+        help_text="Это поле отвечает за категорию товара"
+    )
+    tags = models.ManyToManyField(
+        Tag, related_name="tag",
+        verbose_name="Теги",
+        help_text="Это поле отвечает за теги товара, их может быть очень много"
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "товар"
+        verbose_name_plural = "Товары"
