@@ -1,0 +1,137 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Машина",
+      "is_published": true,
+      "slug": "mashine",
+      "weight": 1200
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Грузовик",
+      "is_published": true,
+      "slug": "grusovik",
+      "weight": 2000
+    }
+  },
+  {
+    "model": "catalog.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Красиво",
+      "is_published": true,
+      "slug": "krasico"
+    }
+  },
+  {
+    "model": "catalog.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Четко",
+      "is_published": true,
+      "slug": "chetko"
+    }
+  },
+  {
+    "model": "catalog.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Превосходно",
+      "is_published": true,
+      "slug": "prevoshodno"
+    }
+  },
+  {
+    "model": "catalog.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Идеально",
+      "is_published": true,
+      "slug": "idealno"
+    }
+  },
+  {
+    "model": "catalog.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Плохо",
+      "is_published": true,
+      "slug": "ploho"
+    }
+  },
+  {
+    "model": "catalog.item",
+    "pk": 1,
+    "fields": {
+      "name": "Лада ПРИОРА",
+      "is_published": true,
+      "text": "Прекрасно для реальных пацанов. Единственный автомобиль в своем роде.",
+      "category": 1,
+      "tags": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "catalog.item",
+    "pk": 2,
+    "fields": {
+      "name": "ВАЗ 2114",
+      "is_published": true,
+      "text": "Автомобиль на все случаи жизни. Прекрасно подходит для перевозки картошки.",
+      "category": 1,
+      "tags": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "catalog.item",
+    "pk": 3,
+    "fields": {
+      "name": "Камаз",
+      "is_published": true,
+      "text": "Монументальный автомобиль. Прекрасно всегда.",
+      "category": 2,
+      "tags": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "catalog.item",
+    "pk": 4,
+    "fields": {
+      "name": "Илон Маск",
+      "is_published": true,
+      "text": "Та еще машина. Купил твитер, теперь двач. Не прекрасно!",
+      "category": 1,
+      "tags": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "catalog.item",
+    "pk": 5,
+    "fields": {
+      "name": "Белаз",
+      "is_published": true,
+      "text": "Его кузова хватит на всю картошку в селе. Это ли не прекрасно!",
+      "category": 2,
+      "tags": [
+        2,
+        3,
+        4
+      ]
+    }
+  }
+]
