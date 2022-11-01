@@ -6,14 +6,10 @@ from Core.validators import validate_must_be_param
 
 
 class Category(CommonCatalog, Slug):
-    weight = models.IntegerField(
+    weight = models.PositiveSmallIntegerField(
         default=100,
-        validators=[
-            MinValueValidator(1),
-            MaxValueValidator(32766),
-        ],
         verbose_name="Вес",
-        help_text="Это поле отвечает за вес товара"
+        help_text="Введите вес товара"
     )
 
     def __str__(self):
@@ -36,21 +32,22 @@ class Tag(CommonCatalog, Slug):
 class Item(CommonCatalog):
     text = models.TextField(
         validators=[
-            validate_must_be_param("превосходно", "прекрасно"),
+            validate_must_be_param('превосходно', 'роскошно')
         ],
         verbose_name="Описание",
-        help_text=f"Это поле отвечает за описание товара"
+        help_text=f"Введите описание товара"
     )
 
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE,
         verbose_name="Категория",
-        help_text="Это поле отвечает за категорию товара"
+        help_text="Введите категорию товара"
     )
+
     tags = models.ManyToManyField(
         Tag, related_name="tag",
         verbose_name="Теги",
-        help_text="Это поле отвечает за теги товара, их может быть очень много"
+        help_text="Введите теги товара, их может быть очень много"
     )
 
     def __str__(self):
