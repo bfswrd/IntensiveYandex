@@ -2,7 +2,6 @@ import re
 
 from django.core.exceptions import ValidationError
 from functools import wraps
-import re
 
 
 def validate_must_be_param(*args):
