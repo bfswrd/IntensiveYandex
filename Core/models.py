@@ -5,11 +5,11 @@ from django.core.validators import validate_slug
 class CommonCatalog(models.Model):
     name = models.CharField(
         max_length=150, verbose_name="Название",
-        help_text="Это поле отвечает за название",
+        help_text="Введите название",
     )
     is_published = models.BooleanField(
         default=True, verbose_name="Опубликовано",
-        help_text="Это поле отвечает за публикацию",
+        help_text="Введите публикацию",
     )
 
     class Meta:
