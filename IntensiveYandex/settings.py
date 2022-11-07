@@ -19,9 +19,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.utils.timezone",
     "about.apps.AboutConfig",
     "catalog.apps.CatalogConfig",
     "homepage.apps.HomepageConfig",
+
+    "django_summernote",
+    "sorl.thumbnail",
+    "django_cleanup.apps.CleanupConfig",
 ]
 
 MIDDLEWARE = [
@@ -85,6 +90,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = "static"
+STATICFILES_DIRS = [
+    BASE_DIR / "static_dev",
+]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
