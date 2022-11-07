@@ -2,9 +2,12 @@ from django.contrib import admin
 
 from catalog.models import Item, Category, Tag, Gallery
 from sorl.thumbnail.admin import AdminImageMixin
+from django_summernote.admin import SummernoteModelAdmin
 
 
-class ItemAdmin(AdminImageMixin, admin.ModelAdmin):
+class ItemAdmin(AdminImageMixin, SummernoteModelAdmin):
+    summernote_fields = "text"
+
     list_display = ("name", "is_published", "image_tbm")
     list_editable = ("is_published",)
     list_display_links = ("name",)

@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "catalog.apps.CatalogConfig",
     "homepage.apps.HomepageConfig",
 
+    "django_summernote",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
 ]
