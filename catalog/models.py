@@ -1,6 +1,6 @@
 from django.db import models
 
-from Core.models import CommonCatalog, Slug
+from Core.models import CommonCatalog, Slug, PreviewCore, GalleryCore
 from Core.validators import validate_must_be_param
 
 
@@ -28,7 +28,7 @@ class Tag(CommonCatalog, Slug):
         verbose_name_plural = "Теги"
 
 
-class Item(CommonCatalog):
+class Item(CommonCatalog, PreviewCore):
     text = models.TextField(
         validators=[
             validate_must_be_param('превосходно', 'роскошно')
@@ -55,3 +55,14 @@ class Item(CommonCatalog):
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "Товары"
+
+
+class Gallery(GalleryCore):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.gallery_image.url
+
+    class Meta:
+        verbose_name = "фото"
+        verbose_name_plural = "Галерея"
