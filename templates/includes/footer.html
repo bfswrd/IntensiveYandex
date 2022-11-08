@@ -1,1 +1,11 @@
-<div></div>
+{% load static %}
+
+<div class="border-bottom text-center">
+    <div>
+        {% for i in '0123456789012345'|make_list %}
+            <a href="{% url "homepage:home" %}">
+                <img src="{% static 'favicon/apple-touch-icon.png' %}" alt="" style="width: 64px; height: 64px;">
+            </a>
+        {% endfor %}
+    </div>
+</div>
