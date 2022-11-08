@@ -6,27 +6,16 @@
         </a>
     </div>
     <div class="col-8"></div>
-    {% with request.resolver_match.view_name as view_name %}
-        <div class="col-1 text-center nav-item">
-            {% if view_name != "homepage:home" %}
-                <a class="nav-link fs-5" href="{% url "homepage:home" %}">Главная</a>
-            {% else %}
-                <a class="nav-link fs-5 text-decoration-underline active" href="{% url "homepage:home" %}">Главная</a>
-            {% endif %}
-        </div>
-        <div class="col-1 text-center">
-            {% if view_name != "about:description" %}
-                <a class="nav-link" href="{% url "about:description" %}">О нас</a>
-            {% else %}
-                <a class="nav-link text-decoration-underline active" href="{% url "about:description" %}">О нас</a>
-            {% endif %}
-        </div>
-        <div class="col-1 text-center">
-            {% if view_name != "catalog:item_list" %}
-                <a class="nav-link" href="{% url "catalog:item_list" %}">Каталог</a>
-            {% else %}
-                <a class="nav-link text-decoration-underline active" href="{% url "catalog:item_list" %}">Каталог</a>
-            {% endif %}
-        </div>
-    {% endwith %}
+    <div class="col-1 text-center nav-item">
+        <a class="nav-link fs-5 {% if request.path == "/" %} text-decoration-underline active {% endif %}" href=
+                "{% url "homepage:home" %}">Главная</a>
+    </div>
+    <div class="col-1 text-center nav-item">
+        <a class="nav-link {% if request.path == "/about/" %} text-decoration-underline active {% endif %}" href=
+                "{% url "about:description" %}">О нас</a>
+    </div>
+    <div class="col-1 text-center nav-item">
+        <a class="nav-link {% if request.path == "/catalog/" %} text-decoration-underline active {% endif %}" href=
+                "{% url "catalog:item_list" %}">Каталог</a>
+    </div>
 </div>
