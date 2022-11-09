@@ -27,7 +27,6 @@ class ItemModelsTest(TestCase):
                         name=f"Негативный тест",
                         text=value,
                         category=Category.objects.get(id=1),
-                        preview="/"
                     )
                     self.item.full_clean()
                     self.item.save()
