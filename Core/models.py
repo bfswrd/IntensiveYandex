@@ -34,7 +34,10 @@ class Slug(models.Model):
 
 
 class PreviewCore(models.Model):
-    preview = models.ImageField(upload_to="uploads/%Y/%m")
+    preview = models.ImageField(
+        upload_to="uploads/%Y/%m",
+        verbose_name="Картинка"
+    )
 
     class Meta:
         abstract = True
