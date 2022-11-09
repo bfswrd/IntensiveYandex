@@ -1,6 +1,15 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv, find_dotenv
+from django_cleanup.signals import cleanup_pre_delete
+from sorl.thumbnail import delete
+
+
+def sorl_delete(**kwargs):
+    delete(kwargs['file'])
+
+
+cleanup_pre_delete.connect(sorl_delete)
 
 load_dotenv(find_dotenv())
 
