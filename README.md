@@ -30,6 +30,8 @@ cd IntensiveYandex
 python -m venv venv
 source venv/Scripts/activate
 pip install -r requirements.txt
+python manage.py makemigrations; python manage.py migrate
+python manage.py collectstatic  
 ``` 
 
 Linux/Mac OS
@@ -40,6 +42,8 @@ cd IntensiveYandex
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
+python3 manage.py makemigrations; python3 manage.py migrate
+python3 manage.py collectstatic  
 ``` 
 
 ##### Или запустите
@@ -47,13 +51,15 @@ pip3 install -r requirements.txt
 Windows
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/Scripts/activate;pip install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/Scripts/activate;pip install -r 
+requirements.txt;python manage.py makemigrations;python manage.py migrate;python manage.py collectstatic  
 ```
 
 Linux/Mac OS
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip3 install -r requirements.txt
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip3 install -r 
+requirements.txt;python3 manage.py makemigrations;python3 manage.py migrate;python3 manage.py collectstatic
 ```
 
 #### Создайте Env ↓
