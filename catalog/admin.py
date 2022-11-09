@@ -8,11 +8,17 @@ from django_summernote.admin import SummernoteModelAdmin
 class GalleryInline(admin.TabularInline):
     model = Gallery
     fk_name = "item"
+    extra = 0
+    readonly_fields = ("image_tbm",)
+    fields = ("image_tbm", "gallery_image",)
 
 
 class PreviewInline(admin.TabularInline):
     model = Preview
     fk_name = "item"
+    extra = 0
+    readonly_fields = ("image_tbm",)
+    fields = ("image_tbm", "preview",)
 
 
 class ItemAdmin(AdminImageMixin, SummernoteModelAdmin):
