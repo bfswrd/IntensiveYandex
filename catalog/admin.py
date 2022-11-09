@@ -5,6 +5,16 @@ from sorl.thumbnail.admin import AdminImageMixin
 from django_summernote.admin import SummernoteModelAdmin
 
 
+class GalleryInline(admin.TabularInline):
+    model = Gallery
+    fk_name = "item"
+
+
+class PreviewInline(admin.TabularInline):
+    model = Preview
+    fk_name = "item"
+
+
 class ItemAdmin(AdminImageMixin, SummernoteModelAdmin):
     summernote_fields = "text"
 
@@ -13,6 +23,8 @@ class ItemAdmin(AdminImageMixin, SummernoteModelAdmin):
     list_display_links = ("name",)
 
     filter_horizontal = ("tags",)
+
+    inlines = [PreviewInline, GalleryInline]
 
 
 class CategoryAdmin(admin.ModelAdmin):
