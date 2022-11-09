@@ -11,6 +11,8 @@ def sorl_delete(**kwargs):
 
 cleanup_pre_delete.connect(sorl_delete)
 
+# Config
+
 load_dotenv(find_dotenv())
 
 BASE_DIR = Path(__file__).resolve().parent.parent
