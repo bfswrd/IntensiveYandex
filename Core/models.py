@@ -36,6 +36,9 @@ class Slug(models.Model):
 class PreviewCore(models.Model):
     preview = models.ImageField(upload_to="uploads/%Y/%m")
 
+    class Meta:
+        abstract = True
+
     @property
     def get_image(self):
         return get_thumbnail(
@@ -50,15 +53,15 @@ class PreviewCore(models.Model):
     image_tbm.short_description = "Превью"
     image_tbm.allow_tags = True
 
-    class Meta:
-        abstract = True
-
 
 class GalleryCore(models.Model):
     gallery_image = models.ImageField(
         upload_to="uploads/%Y/%m",
         verbose_name="Картинка"
     )
+
+    class Meta:
+        abstract = True
 
     @property
     def get_image(self):
@@ -73,6 +76,3 @@ class GalleryCore(models.Model):
 
     image_tbm.short_description = "Галерея"
     image_tbm.allow_tags = True
-
-    class Meta:
-        abstract = True
