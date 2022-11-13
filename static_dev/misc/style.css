@@ -93,8 +93,9 @@
 .offer-item_dl {
     display: inline-block;
     min-width: 125px;
-    margin-right: 20px;
+    margin-right: 0;
     line-height: 1.2;
+    max-width: 310px;
 }
 
 .offer-item_dl:last-child {
@@ -134,12 +135,13 @@
     border-radius: 3px;
     margin: 0 auto;
     overflow: hidden;
-    height:320px;
-    display:flex;
+    height: 320px;
+    display: flex;
 }
 
 .box320 img {
     display: block;
+    z-index: 0;
     width: 32px;
     height: 32px;
     position: absolute;
@@ -165,3 +167,48 @@
     }
 }
 
+.nav-bar-catalog {
+    position: relative;
+    background: #fff;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 49px auto;
+    overflow: hidden;
+    min-height: 100px;
+    height: max-content;
+    display: flex;
+
+}
+
+.flex {
+    display: flex;
+}
+
+.catalog-title {
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.catalog-item {
+    display: block;
+    text-align: left;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    padding-left: 2px;
+    margin-bottom: 1px;
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    transition: all 0.7s ease-in 0s;
+}
+
+
+.catalog-item:hover {
+    transition: all 0.5s ease 0s;
+    /*transition: background-color 0.7s ease-in 0s;*/
+    color: white;
+    background-color: black;
+}
