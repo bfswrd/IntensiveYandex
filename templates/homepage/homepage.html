@@ -6,32 +6,7 @@
         {% include "includes/cat-box.html" %}
         <div class="text-lg-start col-9">
             {% for item in items %}
-                <div class="offer-item" style="{% if forloop.last %} margin-bottom: 0 {% endif %}">
-                    <div class="offer-item_title">
-                        <h5>
-                            {{ item.name }}
-                        </h5>
-                        <p class="mb-0">Категория: {{ item.category.name }}</p>
-                        <p class="mb-0">Теги:
-                            {% for tag in item.tags.all %}
-                                {% if forloop.first %}
-                                    {{ tag.name }}
-                                {% else %}
-                                    , {{ tag.name }}
-                                {% endif %}
-                            {% endfor %}
-                        </p>
-                    </div>
-                    <div class="offer-item_dl">
-                        <span class="offer-item_dt">Описание:</span>
-                        <span class="offer-item_dd">{{ item.text|safe }}</span>
-                    </div>
-                    <div class="offer-item_part">
-                        <a href="{% url "catalog:item_detail" pk=item.pk %}">
-                            <button class="btn">Перейти</button>
-                        </a>
-                    </div>
-                </div>
+                {% include "includes/item.html" %}
             {% empty %}
                 <p>Пустовато тут</p>
             {% endfor %}
