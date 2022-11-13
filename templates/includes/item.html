@@ -16,7 +16,7 @@
     </div>
     <div class="offer-item_dl">
         <span class="offer-item_dt">Описание:</span>
-        <span class="offer-item_dd">{{ item.text|safe|truncatewords:10 }}</span>
+        <span class="offer-item_dd">{{ item.text|striptags|truncatewords:10 }}</span>
     </div>
     <div class="offer-item_part">
         <a href="{% url "catalog:item_detail" pk=item.pk %}">

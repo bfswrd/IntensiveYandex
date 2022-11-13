@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 from Core.models import CommonCatalog, Slug, PreviewCore, GalleryCore
 from Core.validators import validate_must_be_param
@@ -75,6 +76,9 @@ class Item(CommonCatalog):
         verbose_name = "товар"
         verbose_name_plural = "Товары"
         ordering = ("name",)
+
+    def get_absolute_url(self):
+        return reverse("catalog:item_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.name
