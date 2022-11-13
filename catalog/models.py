@@ -29,6 +29,11 @@ class Tag(CommonCatalog, Slug):
 
 
 class Item(CommonCatalog):
+    is_on_main = models.BooleanField(
+        default=False, verbose_name="Опубликовано на главной",
+        help_text="Включите, если публикация должна отображаться на главной",
+    )
+
     text = models.TextField(
         validators=[
             validate_must_be_param('превосходно', 'роскошно')
