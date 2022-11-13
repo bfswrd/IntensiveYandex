@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 from Core.models import CommonCatalog, Slug, PreviewCore, GalleryCore
 from Core.validators import validate_must_be_param
@@ -28,7 +29,29 @@ class Tag(CommonCatalog, Slug):
         return self.name
 
 
+class ItemManager(models.Manager):
+    def published(self):
+        return (
+            self.get_queryset()
+                .filter(is_published=True)
+                .select_related("category")
+                .prefetch_related(
+                models.Prefetch(
+                    'tags',
+                    queryset=Tag.objects.filter(is_published=True)
+                )
+            )
+        )
+
+
 class Item(CommonCatalog):
+    objects = ItemManager()
+
+    is_on_main = models.BooleanField(
+        default=False, verbose_name="Опубликовано на главной",
+        help_text="Включите, если публикация должна отображаться на главной",
+    )
+
     text = models.TextField(
         validators=[
             validate_must_be_param('превосходно', 'роскошно')
@@ -52,6 +75,10 @@ class Item(CommonCatalog):
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "Товары"
+        ordering = ("name",)
+
+    def get_absolute_url(self):
+        return reverse("catalog:item_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.name

@@ -12,7 +12,7 @@ class CommonCatalog(models.Model):
     )
     is_published = models.BooleanField(
         default=True, verbose_name="Опубликовано",
-        help_text="Введите публикацию",
+        help_text="Включите, если публикация должна отображаться",
     )
 
     class Meta:

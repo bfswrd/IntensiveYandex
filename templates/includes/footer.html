@@ -1,11 +1,10 @@
 {% load static %}
 
-<div class="border-bottom text-center">
-    <div>
-        {% for i in '0123456789012345'|make_list %}
-            <a href="{% url "homepage:home" %}">
-                <img src="{% static 'favicon/apple-touch-icon.png' %}" alt="" style="width: 64px; height: 64px;">
-            </a>
+<div class="container border-top bg-white text-center mt-1 pt-1">
+    <a href="{% url "homepage:home" %}">
+        {% for val in '01010101010101010'|make_list %}
+            <img src="{% if val == "0" %} {% static 'favicon/android-chrome-192x192.png' %} {% else %} {% static 'image/cat-box.svg' %}
+{% endif %}" alt="" style="width: 48px; height: 48px; {% if not forloop.first %} margin-left: 10px {% endif %}">
         {% endfor %}
-    </div>
+    </a>
 </div>

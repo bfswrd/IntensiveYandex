@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-3">Главная страница</h2>
+    <div class="row">
+        {% include "includes/cat-box.html" %}
+        <div class="text-lg-start col-9">
+            {% for item in items %}
+                {% include "includes/item.html" %}
+            {% empty %}
+                <p>Пустовато тут</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

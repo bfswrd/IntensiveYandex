@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-3 nav-bar-catalog">
+            <div class="w-100">
+                <a class="catalog-title">Категории</a>
+                {% for item in items %}
+                    {% ifchanged item.category.name %}
+                        <div>
+                            <a class="catalog-item" href="#{{ item.category.name }}">{{ item.category.name|truncatewords:10 }}</a>
+                        </div>
+                    {% endifchanged %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="text-lg-start col-9">
+            {% for item in items %}
+                {% ifchanged item.category.name %}
+                    <h3 class="mb-3 text-center" id="{{ item.category.name }}">{{ item.category.name }}</h3>
+                {% endifchanged %}
+                {% include "includes/item.html" %}
+            {% empty %}
+                <p>Пустовато тут</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
