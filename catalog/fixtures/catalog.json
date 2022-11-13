@@ -1,137 +1,159 @@
 [
-  {
+{
     "model": "catalog.category",
     "pk": 1,
     "fields": {
-      "name": "Машина",
-      "is_published": true,
-      "slug": "mashine",
-      "weight": 1200
+        "name": "test",
+        "is_published": true,
+        "slug": "test",
+        "weight": 100
     }
-  },
-  {
+},
+{
     "model": "catalog.category",
     "pk": 2,
     "fields": {
-      "name": "Грузовик",
-      "is_published": true,
-      "slug": "grusovik",
-      "weight": 2000
+        "name": "test2",
+        "is_published": true,
+        "slug": "test2",
+        "weight": 100
     }
-  },
-  {
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Маша Петя Коля Маша Петя Коля Маша Петя Коля Маша Петя Коля",
+        "is_published": true,
+        "slug": "test3",
+        "weight": 100
+    }
+},
+{
     "model": "catalog.tag",
     "pk": 1,
     "fields": {
-      "name": "Красиво",
-      "is_published": true,
-      "slug": "krasico"
+        "name": "test",
+        "is_published": true,
+        "slug": "test"
     }
-  },
-  {
+},
+{
     "model": "catalog.tag",
     "pk": 2,
     "fields": {
-      "name": "Четко",
-      "is_published": true,
-      "slug": "chetko"
+        "name": "test2",
+        "is_published": true,
+        "slug": "test2"
     }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 3,
-    "fields": {
-      "name": "Превосходно",
-      "is_published": true,
-      "slug": "prevoshodno"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 4,
-    "fields": {
-      "name": "Идеально",
-      "is_published": true,
-      "slug": "idealno"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 5,
-    "fields": {
-      "name": "Плохо",
-      "is_published": true,
-      "slug": "ploho"
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 1,
-    "fields": {
-      "name": "Лада ПРИОРА",
-      "is_published": true,
-      "text": "Прекрасно для реальных пацанов. Единственный автомобиль в своем роде.",
-      "category": 1,
-      "tags": [
-        1,
-        2,
-        3
-      ]
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 2,
-    "fields": {
-      "name": "ВАЗ 2114",
-      "is_published": true,
-      "text": "Автомобиль на все случаи жизни. Прекрасно подходит для перевозки картошки.",
-      "category": 1,
-      "tags": [
-        3,
-        4
-      ]
-    }
-  },
-  {
+},
+{
     "model": "catalog.item",
     "pk": 3,
     "fields": {
-      "name": "Камаз",
-      "is_published": true,
-      "text": "Монументальный автомобиль. Прекрасно всегда.",
-      "category": 2,
-      "tags": [
-        4
-      ]
+        "name": "Показано",
+        "is_published": true,
+        "is_on_main": false,
+        "text": "<p>РОскошно</p>",
+        "category": 1,
+        "tags": [
+            1
+        ]
     }
-  },
-  {
+},
+{
     "model": "catalog.item",
     "pk": 4,
     "fields": {
-      "name": "Илон Маск",
-      "is_published": true,
-      "text": "Та еще машина. Купил твитер, теперь двач. Не прекрасно!",
-      "category": 1,
-      "tags": [
-        5
-      ]
+        "name": "Скрыто",
+        "is_published": false,
+        "is_on_main": false,
+        "text": "<p><br></p><p>Роскошно</p>",
+        "category": 1,
+        "tags": [
+            1
+        ]
     }
-  },
-  {
+},
+{
     "model": "catalog.item",
     "pk": 5,
     "fields": {
-      "name": "Белаз",
-      "is_published": true,
-      "text": "Его кузова хватит на всю картошку в селе. Это ли не прекрасно!",
-      "category": 2,
-      "tags": [
-        2,
-        3,
-        4
-      ]
+        "name": "На главной показано",
+        "is_published": true,
+        "is_on_main": true,
+        "text": "<p>Роскошно</p>",
+        "category": 2,
+        "tags": [
+            1
+        ]
     }
-  }
+},
+{
+    "model": "catalog.item",
+    "pk": 6,
+    "fields": {
+        "name": "На главной скрыто",
+        "is_published": false,
+        "is_on_main": true,
+        "text": "<p>Роскошно</p>",
+        "category": 1,
+        "tags": [
+            1
+        ]
+    }
+},
+{
+    "model": "catalog.item",
+    "pk": 7,
+    "fields": {
+        "name": "2 тега",
+        "is_published": true,
+        "is_on_main": false,
+        "text": "<p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum dui quis turpis pulvinar, cursus semper eros vehicula. Sed id nunc varius, interdum lacus et, volutpat mi. Donec lobortis dignissim lorem, commodo tempor ex vestibulum quis. Cras varius vulputate ipsum eget accumsan. Donec id leo dolor. Nunc ultrices eros sodales nibh faucibus, eget tincidunt tellus aliquam. Morbi tempor eleifend ipsum, eget dignissim diam tincidunt volutpat. Morbi eu felis libero. Ut pharetra sollicitudin mi ut sollicitudin. Proin sit amet purus sed augue rhoncus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">Maecenas vitae eros sit amet nulla cursus commodo. Donec rhoncus lectus lectus, at iaculis nisl egestas vitae. Nam pulvinar pretium libero, ac ornare purus pharetra sed. Quisque sollicitudin tincidunt pharetra. Suspendisse potenti. Nulla facilisi. Vivamus mollis egestas neque et ultrices. Donec tempor finibus tempus. Donec nec elit ullamcorper, congue erat eget, condimentum orci. Morbi accumsan vitae eros eget congue. Quisque posuere tincidunt fermentum. Vivamus efficitur pharetra cursus. Praesent lobortis dolor ut diam aliquet malesuada. Vestibulum non velit non felis bibendum tincidunt in quis nibh.</p><p style=\"margin-bottom: 15px; padding: 0px; text-align: justify; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;\">роскошно</p>",
+        "category": 1,
+        "tags": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "catalog.item",
+    "pk": 8,
+    "fields": {
+        "name": "каталог3",
+        "is_published": true,
+        "is_on_main": false,
+        "text": "<p>роскошно</p>",
+        "category": 3,
+        "tags": [
+            2
+        ]
+    }
+},
+{
+    "model": "catalog.gallery",
+    "pk": 4,
+    "fields": {
+        "gallery_image": "uploads/2022/11/IMG_0607.jpeg",
+        "item": 3
+    }
+},
+{
+    "model": "catalog.gallery",
+    "pk": 5,
+    "fields": {
+        "gallery_image": "uploads/2022/11/IMG_0607_R7mXeVv.jpeg",
+        "item": 3
+    }
+},
+{
+    "model": "catalog.gallery",
+    "pk": 6,
+    "fields": {
+        "gallery_image": "uploads/2022/11/IMG_0607_bKjXGbf.jpeg",
+        "item": 3
+    }
+}
 ]

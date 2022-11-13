@@ -24,8 +24,8 @@ class PreviewInline(admin.TabularInline):
 class ItemAdmin(AdminImageMixin, SummernoteModelAdmin):
     summernote_fields = "text"
 
-    list_display = ("name", "is_published")
-    list_editable = ("is_published",)
+    list_display = ("name", "is_published", "is_on_main",)
+    list_editable = ("is_published","is_on_main",)
     list_display_links = ("name",)
 
     filter_horizontal = ("tags",)
