@@ -23,6 +23,10 @@ DEBUG = os.getenv("DEBUG", default="False") == "True"
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", default="127.0.0.1").split(",")
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     "django_summernote",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "IntensiveYandex.urls"

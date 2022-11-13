@@ -10,4 +10,10 @@ urlpatterns = [
     path("catalog/", include("catalog.urls")),
     path('summernote/', include('django_summernote.urls')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "Core.views.page_not_found_view"
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += path('__debug__/', include('debug_toolbar.urls')),
