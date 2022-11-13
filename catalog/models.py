@@ -57,6 +57,7 @@ class Item(CommonCatalog):
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "Товары"
+        ordering = ("name",)
 
     def __str__(self):
         return self.name
