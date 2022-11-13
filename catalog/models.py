@@ -28,7 +28,24 @@ class Tag(CommonCatalog, Slug):
         return self.name
 
 
+class ItemManager(models.Manager):
+    def published(self):
+        return (
+            self.get_queryset()
+                .filter(is_published=True)
+                .select_related("category")
+                .prefetch_related(
+                models.Prefetch(
+                    'tags',
+                    queryset=Tag.objects.filter(is_published=True)
+                )
+            )
+        )
+
+
 class Item(CommonCatalog):
+    objects = ItemManager()
+
     is_on_main = models.BooleanField(
         default=False, verbose_name="Опубликовано на главной",
         help_text="Включите, если публикация должна отображаться на главной",
