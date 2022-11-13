@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <h2>Мы не смогли найти данную страницу</h2>
-    <a href="{% url "homepage:home" %}">На главную...</a>
+    <div class="flex justify-content-center">
+        <div class="col-3">
+            <div class="box320 align-items-center justify-content-center border-0">
+                <a href="{% url "homepage:home" %}">На главную...</a>
+                <img src="{% static "/image/cat-box.svg" %}" alt="" href="{% url "homepage:home" %}">
+            </div>
+        </div>
+    </div>
 {% endblock %}
