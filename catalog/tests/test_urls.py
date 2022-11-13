@@ -3,6 +3,7 @@ from django.test import Client, TestCase
 
 from catalog.models import Category, Tag, Item
 
+
 class CatalogURLTests(TestCase):
     # Check catalog endpoint
     @classmethod
@@ -42,7 +43,33 @@ class CatalogURLTests(TestCase):
 
 
 class TaskPageTests(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.category = Category.objects.create(name="Тест1", slug="test_1")
+        cls.tag = Tag.objects.create(name="Тест1", slug="test_1")
+        cls.item = Item(
+            name=f"Позитивный",
+            text="Роскошно",
+            category=Category.objects.get(id=1),
+        )
+        cls.item.full_clean()
+        cls.item.save()
+        cls.item.tags.add(Tag.objects.get(id=1))
+        cls.item.save()
+
     def test_home_page_show_correct_context(self):
         response = Client().get(reverse("homepage:home"))
         self.assertIn("items", response.context)
         self.assertEqual(len(response.context["items"]), 0)
+
+    def test_item_list_page_show_correct_context(self):
+        response = Client().get(reverse("catalog:item_list"))
+        self.assertIn("items", response.context)
+        self.assertEqual(len(response.context["items"]), 1)
+
+    def test_item_detail_page_show_correct_context(self):
+        response = Client().get(reverse("catalog:item_detail",
+                                        kwargs={"pk": 1}))
+        self.assertIn("item", response.context)
+        self.assertEqual(response.context["item"], Item.objects.get(pk=1))

@@ -31,7 +31,8 @@ python -m venv venv
 source venv/Scripts/activate
 pip install -r requirements.txt
 python manage.py makemigrations; python manage.py migrate
-python manage.py collectstatic  
+python manage.py collectstatic
+python manage.py loaddata catalog/fixtures/catalog.json --app catalog  
 ``` 
 
 Linux/Mac OS
@@ -43,7 +44,8 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 python3 manage.py makemigrations; python3 manage.py migrate
-python3 manage.py collectstatic  
+python3 manage.py collectstatic 
+python3 manage.py loaddata catalog/fixtures/catalog.json --app catalog 
 ``` 
 
 ##### Или запустите
@@ -51,13 +53,13 @@ python3 manage.py collectstatic
 Windows
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/Scripts/activate;pip install -r requirements.txt;python manage.py makemigrations;python manage.py migrate;python manage.py collectstatic  
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python -m venv venv;source venv/Scripts/activate;pip install -r requirements.txt;python manage.py makemigrations;python manage.py migrate;python manage.py collectstatic;python manage.py loaddata catalog/fixtures/catalog.json --app catalog;  
 ```
 
 Linux/Mac OS
 
 ```bash
-git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip3 install -r requirements.txt;python3 manage.py makemigrations;python3 manage.py migrate;python3 manage.py collectstatic
+git clone git@github.com:bfswrd/IntensiveYandex;cd IntensiveYandex;python3 -m venv venv;source venv/bin/activate;pip3 install -r requirements.txt;python3 manage.py makemigrations;python3 manage.py migrate;python3 manage.py collectstatic;python3 manage.py loaddata catalog/fixtures/catalog.json --app catalog
 ```
 
 #### Создайте Env ↓
