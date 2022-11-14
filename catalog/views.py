@@ -4,7 +4,7 @@ from catalog.models import Item
 
 
 def item_list(request):
-    items = Item.objects.published().order_by("category", "name")
+    items = Item.objects.published().order_by("category__name", "name")
 
     context = {
         "items": items,
