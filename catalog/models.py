@@ -40,6 +40,11 @@ class ItemManager(models.Manager):
                     'tags',
                     queryset=Tag.objects.filter(is_published=True)
                 )
+            ).prefetch_related(
+                models.Prefetch(
+                    'preview',
+                    queryset=Preview.objects.all()
+                )
             )
         )
 
