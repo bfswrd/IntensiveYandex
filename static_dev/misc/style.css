@@ -208,7 +208,34 @@
 
 .catalog-item:hover {
     transition: all 0.5s ease 0s;
-    /*transition: background-color 0.7s ease-in 0s;*/
     color: white;
     background-color: black;
+}
+
+.tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}
+
+.tag {
+    border: 1px dotted black;
+    background: white;
+    border-radius: 5px;
+    max-width: min-content;
+    margin-right: 5px;
+    padding: 0 5px 0 5px;
+    transition: all 0.3s ease-in-out 0s;
+
+}
+
+.tag a {
+    text-decoration: none;
+    color: black;
+}
+
+.tag:hover {
+    transition: all 0.5s ease 0s;
+    color: white;
+    background: #1c1c1c;
 }

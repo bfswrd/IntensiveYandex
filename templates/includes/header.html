@@ -6,15 +6,15 @@
         </a>
     </div>
     <div class="col-8"></div>
-    <div class="col-1 text-center nav-item">
+    <div class="col-1 text-center">
         <a class="nav-link {% if request.path == "/" %} active {% endif %}" href=
                 "{% url "homepage:home" %}">Главная</a>
     </div>
-    <div class="col-1 text-center nav-item">
+    <div class="col-1 text-center">
         <a class="nav-link {% if request.path == "/about/" %} active {% endif %}" href=
                 "{% url "about:description" %}">О нас</a>
     </div>
-    <div class="col-1 text-center nav-item">
+    <div class="col-1 text-center">
         <a class="nav-link {% if request.path == "/catalog/" %} active {% endif %}" href=
                 "{% url "catalog:item_list" %}">Каталог</a>
     </div>
