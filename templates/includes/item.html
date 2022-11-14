@@ -1,18 +1,23 @@
 <div class="offer-item" style="{% if forloop.last %} margin-bottom: 0 {% endif %}">
+    {% if item.preview %}
+        <div class="offer-item_img">
+            <img src="{{ item.preview }}" alt="">
+        </div>
+    {% endif %}
     <div class="offer-item_title">
-        <h5>
-            {{ item.name }}
-        </h5>
+        <a class="link-dark" style="text-decoration: none" href="{% url "catalog:item_detail" pk=item.pk %}">
+            <h5>
+                {{ item.name }}
+            </h5>
+        </a>
         <p class="mb-0">Категория: {{ item.category.name|truncatewords:10 }}</p>
-        <p class="mb-0">Теги:
+        <div class="tag-group">
             {% for tag in item.tags.all %}
-                {% if forloop.first %}
-                    {{ tag.name|truncatewords:10 }}
-                {% else %}
-                    , {{ tag.name|truncatewords:10 }}
-                {% endif %}
+                <a href="#{{ tag.name|truncatewords:10 }}">
+                    <button class="tag">{{ tag.name|truncatewords:10 }}</button>
+                </a>
             {% endfor %}
-        </p>
+        </div>
     </div>
     <div class="offer-item_dl">
         <span class="offer-item_dt">Описание:</span>
