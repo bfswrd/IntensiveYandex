@@ -1,5 +1,4 @@
 from django.db import models
-from django.http import Http404
 from django.shortcuts import reverse
 
 from Core.models import CommonCatalog, GalleryCore, PreviewCore, Slug
