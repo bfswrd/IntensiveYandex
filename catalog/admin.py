@@ -1,8 +1,8 @@
 from django.contrib import admin
-
-from catalog.models import Item, Category, Tag, Gallery, Preview
-from sorl.thumbnail.admin import AdminImageMixin
 from django_summernote.admin import SummernoteModelAdmin
+from sorl.thumbnail.admin import AdminImageMixin
+
+from catalog.models import Category, Gallery, Item, Preview, Tag
 
 
 class GalleryInline(admin.TabularInline):

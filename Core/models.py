@@ -1,7 +1,6 @@
+from django.core.validators import validate_slug
 from django.db import models
 from django.utils.safestring import mark_safe
-from django.core.validators import validate_slug
-
 from sorl.thumbnail import get_thumbnail
 
 

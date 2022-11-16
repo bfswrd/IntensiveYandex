@@ -1,7 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 
-from Core.models import CommonCatalog, Slug, PreviewCore, GalleryCore
+from Core.models import CommonCatalog, GalleryCore, PreviewCore, Slug
 from Core.validators import validate_must_be_param
 
 
