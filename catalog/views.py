@@ -13,7 +13,7 @@ def item_list(request):
 
 
 def item_detail(request, pk: int):
-    item = Item.objects.get_or_404(pk=pk, is_published=True)
+    item = get_object_or_404(Item.objects.published(), pk=pk)
 
     context = {
         "item": item,

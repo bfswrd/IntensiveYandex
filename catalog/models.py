@@ -46,24 +46,6 @@ class ItemManager(models.Manager):
             )
         )
 
-    def get_or_404(self, *args, **kwargs):
-        try:
-            return (
-                self.get_queryset()
-                    .select_related("category")
-                    .select_related("preview")
-                    .prefetch_related(
-                    models.Prefetch(
-                        'tags',
-                        queryset=Tag.objects.filter(is_published=True)
-                    )
-                ).get(*args, **kwargs)
-            )
-        except Item.DoesNotExist:
-            raise Http404(
-                'No %s matches the given query.' % Item._meta.object_name
-            )
-
 
 class Item(CommonCatalog):
     objects = ItemManager()
