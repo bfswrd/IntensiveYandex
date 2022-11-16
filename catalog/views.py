@@ -9,7 +9,7 @@ def item_list(request):
     context = {
         "items": items,
     }
-    return render(request, "catalog/items_list.html", context=context)
+    return render(request, "catalog/item_list.html", context=context)
 
 
 def item_detail(request, pk: int):
