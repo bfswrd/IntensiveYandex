@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 from catalog.models import Item
 
@@ -9,11 +9,11 @@ def item_list(request):
     context = {
         "items": items,
     }
-    return render(request, "catalog/items_list.html", context=context)
+    return render(request, "catalog/item_list.html", context=context)
 
 
 def item_detail(request, pk: int):
-    item = get_object_or_404(Item, pk=pk)
+    item = Item.objects.get_or_404(pk=pk, is_published=True)
 
     context = {
         "item": item,

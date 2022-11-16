@@ -1,7 +1,8 @@
 from django.db import models
+from django.http import Http404
 from django.shortcuts import reverse
 
-from Core.models import CommonCatalog, Slug, PreviewCore, GalleryCore
+from Core.models import CommonCatalog, GalleryCore, PreviewCore, Slug
 from Core.validators import validate_must_be_param
 
 
@@ -40,13 +41,28 @@ class ItemManager(models.Manager):
                     'tags',
                     queryset=Tag.objects.filter(is_published=True)
                 )
-            ).prefetch_related(
-                models.Prefetch(
-                    'preview',
-                    queryset=Preview.objects.all()
-                )
+            ).select_related(
+                'preview',
             )
         )
+
+    def get_or_404(self, *args, **kwargs):
+        try:
+            return (
+                self.get_queryset()
+                    .select_related("category")
+                    .select_related("preview")
+                    .prefetch_related(
+                    models.Prefetch(
+                        'tags',
+                        queryset=Tag.objects.filter(is_published=True)
+                    )
+                ).get(*args, **kwargs)
+            )
+        except Item.DoesNotExist:
+            raise Http404(
+                'No %s matches the given query.' % Item._meta.object_name
+            )
 
 
 class Item(CommonCatalog):

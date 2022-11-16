@@ -1,7 +1,7 @@
 from django.shortcuts import reverse
 from django.test import Client, TestCase
 
-from catalog.models import Category, Tag, Item
+from catalog.models import Category, Item, Tag
 
 
 class CatalogURLTests(TestCase):
