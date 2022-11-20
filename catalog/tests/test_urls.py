@@ -1,5 +1,5 @@
 from django.shortcuts import reverse
-from django.test import Client, TestCase
+from django.test import TestCase
 
 from catalog.models import Category, Item, Tag
 
@@ -22,7 +22,7 @@ class CatalogURLTests(TestCase):
         cls.item.save()
 
     def test_catalog_endpoint(self):
-        response = Client().get(path="/catalog/")
+        response = self.client.get(path="/catalog/")
         self.assertEqual(response.status_code, 200)
 
     # Check catalog items endpoint
@@ -38,7 +38,7 @@ class CatalogURLTests(TestCase):
         )
         for path, status_code in _TESTS:
             with self.subTest(item=(path, status_code)):
-                response = Client().get(path=path)
+                response = self.client.get(path=path)
                 self.assertEqual(response.status_code, status_code)
 
 
@@ -59,17 +59,17 @@ class TaskPageTests(TestCase):
         cls.item.save()
 
     def test_home_page_show_correct_context(self):
-        response = Client().get(reverse("homepage:home"))
+        response = self.client.get(reverse("homepage:home"))
         self.assertIn("items", response.context)
         self.assertEqual(len(response.context["items"]), 0)
 
     def test_item_list_page_show_correct_context(self):
-        response = Client().get(reverse("catalog:item_list"))
+        response = self.client.get(reverse("catalog:item_list"))
         self.assertIn("items", response.context)
         self.assertEqual(len(response.context["items"]), 1)
 
     def test_item_detail_page_show_correct_context(self):
-        response = Client().get(reverse("catalog:item_detail",
-                                        kwargs={"pk": 1}))
+        response = self.client.get(reverse("catalog:item_detail",
+                                           kwargs={"pk": 1}))
         self.assertIn("item", response.context)
         self.assertEqual(response.context["item"], Item.objects.get(pk=1))

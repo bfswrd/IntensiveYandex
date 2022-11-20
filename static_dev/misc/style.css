@@ -239,3 +239,20 @@
     color: white;
     background: #1c1c1c;
 }
+
+.form-control-my {
+    transition: all ease-in-out .25s;
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    color: black;
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid #1c1c1c;
+    appearance: none;
+}
+
+.form-control-my:focus {
+    transition: all ease-in-out .45s;
+    outline: rgba(255, 255, 255, 75%) groove 5px;
+}
