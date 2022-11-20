@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "about.apps.AboutConfig",
     "catalog.apps.CatalogConfig",
     "homepage.apps.HomepageConfig",
+    "feedback.apps.FeedbackConfig",
 
     "django_summernote",
     "sorl.thumbnail",
