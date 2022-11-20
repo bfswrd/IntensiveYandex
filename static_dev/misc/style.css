@@ -241,18 +241,27 @@
 }
 
 .form-control-my {
-    transition: all ease-in-out .25s;
+    transition: .25s;
     display: block;
     width: 100%;
     padding: 6px 12px;
     color: black;
     background-color: white;
     background-clip: padding-box;
+    background-image: url("/static/image/cat-text-field.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: 64px;*/
     border: 1px solid #1c1c1c;
     appearance: none;
 }
 
+
 .form-control-my:focus {
     transition: all ease-in-out .45s;
     outline: rgba(255, 255, 255, 75%) groove 5px;
+}
+
+.form-control-my:after {
+    mix-blend-mode: difference;
 }
