@@ -9,22 +9,22 @@ import Core.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('catalog', '0001_initial'),
+        ("catalog", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='item',
-            name='is_on_main',
-            field=models.BooleanField(default=False, help_text='Включите, если публикация должна отображаться на главной', verbose_name='Опубликовано на главной'),
+            model_name="item",
+            name="is_on_main",
+            field=models.BooleanField(default=False, help_text="Включите, если публикация должна отображаться на главной", verbose_name="Опубликовано на главной"),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='is_published',
-            field=models.BooleanField(default=True, help_text='Включите, если публикация должна отображаться', verbose_name='Опубликовано'),
+            model_name="category",
+            name="is_published",
+            field=models.BooleanField(default=True, help_text="Включите, если публикация должна отображаться", verbose_name="Опубликовано"),
         ),
         migrations.AlterField(
-            model_name='gallery',
+            model_name="gallery",
             name='item',
             field=models.ForeignKey(help_text='Выберите товар, к которому необходимо привязать фото', on_delete=django.db.models.deletion.CASCADE, to='catalog.item', verbose_name='Товар'),
         ),

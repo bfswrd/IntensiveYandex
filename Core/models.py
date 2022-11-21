@@ -49,7 +49,7 @@ class PreviewCore(models.Model):
 
     def image_tbm(self):
         if self.preview:
-            return mark_safe(f'<img src="{self.get_image.url}">')
+            return mark_safe(f"<img src='{self.get_image.url}'>")
         return "Изображение не найдено"
 
     image_tbm.short_description = "Превью"
@@ -73,7 +73,7 @@ class GalleryCore(models.Model):
 
     def image_tbm(self):
         if self.gallery_image:
-            return mark_safe(f'<img src="{self.get_image.url}">')
+            return mark_safe(f"<img src='{self.get_image.url}'>")
         return "Изображение не найдено"
 
     image_tbm.short_description = "Галерея"

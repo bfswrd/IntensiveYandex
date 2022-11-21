@@ -8,13 +8,13 @@ import Core.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('catalog', '0002_auto_20221113_0957'),
+        ("catalog", "0002_auto_20221113_0957"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='item',
-            options={'ordering': ('name',), 'verbose_name': 'товар', 'verbose_name_plural': 'Товары'},
+            name="item",
+            options={"ordering": ("name",), "verbose_name": "товар", "verbose_name_plural": "Товары"},
         ),
         migrations.AlterField(
             model_name='item',

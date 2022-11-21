@@ -37,11 +37,11 @@ class ItemManager(models.Manager):
                 .select_related("category")
                 .prefetch_related(
                 models.Prefetch(
-                    'tags',
+                    "tags",
                     queryset=Tag.objects.filter(is_published=True)
                 )
             ).select_related(
-                'preview',
+                "preview",
             )
         )
 
@@ -56,7 +56,7 @@ class Item(CommonCatalog):
 
     text = models.TextField(
         validators=[
-            validate_must_be_param('превосходно', 'роскошно')
+            validate_must_be_param("превосходно", "роскошно")
         ],
         verbose_name="Описание",
         help_text=f"Введите описание товара"

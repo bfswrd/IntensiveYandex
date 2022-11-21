@@ -7,7 +7,7 @@ from sorl.thumbnail import delete
 
 
 def sorl_delete(**kwargs):
-    delete(kwargs['file'])
+    delete(kwargs["file"])
 
 
 cleanup_pre_delete.connect(sorl_delete)
@@ -121,6 +121,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", default="admin@exam.ple")
+NOREPLY_EMAIL = os.getenv("NOREPLY_EMAIL", default="norply@exam.ple")
+ADMIN_EMAILS = os.getenv("ADMIN_EMAILS", default="admin@exam.ple").split(",")
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / "send_mail"
