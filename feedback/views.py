@@ -1,5 +1,6 @@
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
+from django.conf import settings
 
 from feedback import forms
 from feedback.models import Feedback
@@ -12,11 +13,10 @@ def feedback(request):
     }
     if request.POST and form.is_valid():
         send_mail(
-            "Привет",
-            (f"Мы улышали тебя и хоти сказать спасибо"
-             f" за обраную свзязь {form.cleaned_data.get('text')}"),
-            "from@to.ru",
-            ["ex1@amp.le", "ex2@amp.le", ],
+            f"Обратная связь",
+            message=form.cleaned_data.get('text'),
+            from_email=settings.ADMIN_EMAIL,
+            recipient_list=(settings.ADMIN_EMAIL,),
             fail_silently=False,
         )
         Feedback.objects.create(**form.cleaned_data).save()
