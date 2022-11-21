@@ -12,13 +12,13 @@ def feedback(request):
         "form": form
     }
     if request.POST and form.is_valid():
+        Feedback.objects.create(**form.cleaned_data)
         send_mail(
             f"Обратная связь",
-            message=form.cleaned_data.get('text'),
-            from_email=settings.ADMIN_EMAIL,
-            recipient_list=(settings.ADMIN_EMAIL,),
+            message=form.cleaned_data.get("text"),
+            from_email=settings.NOREPLY_EMAIL,
+            recipient_list=(*settings.ADMIN_EMAILS,),
             fail_silently=False,
         )
-        Feedback.objects.create(**form.cleaned_data).save()
         return redirect("feedback:feedback")
     return render(request, "feedback/feedback.html", context=context)
