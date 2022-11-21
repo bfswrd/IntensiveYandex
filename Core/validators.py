@@ -9,7 +9,7 @@ def validate_must_be_param(*args):
 
     @wraps(validate_must_be_param)
     def validate_amazing(value: str):
-        cleaner_value = set(re.sub(r'[^\w\s]', ' ', value).lower().split())
+        cleaner_value = set(re.sub(r"[^\w\s]", " ", value).lower().split())
 
         difference = must_be_in_our_item - cleaner_value
 
