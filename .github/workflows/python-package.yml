@@ -33,7 +33,6 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
       - name: Run Tests
         run: |
-          echo "NOREPLY_EMAIL=test@ex.pl\nADMIN_EMAILS=test@ex.pl" > .env
           python manage.py makemigrations
           python manage.py migrate  
           python manage.py test
