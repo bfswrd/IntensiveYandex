@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 from django_cleanup.signals import cleanup_pre_delete
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", default="BFSWRD")
 
-DEBUG = os.getenv("DEBUG", default="False") == "True"
+DEBUG = os.getenv("DEBUG", default="False").lower() in ["on", "true"]
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", default="127.0.0.1").split(",")
 
@@ -121,7 +122,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-NOREPLY_EMAIL = os.getenv("NOREPLY_EMAIL", default="norply@exam.ple")
-ADMIN_EMAILS = os.getenv("ADMIN_EMAILS", default="admin@exam.ple").split(",")
+if not len(sys.argv) > 1 and sys.argv[1] == 'test':
+    NOREPLY_EMAIL = os.environ["NOREPLY_EMAIL"]
+    ADMIN_EMAILS = os.environ["ADMIN_EMAILS"].split(",")
+else:
+    NOREPLY_EMAIL, ADMIN_EMAILS = "test@ex.pl", "test@ex.pl"
+
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / "send_mail"
