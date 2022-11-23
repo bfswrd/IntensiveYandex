@@ -122,11 +122,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-if not len(sys.argv) > 1 and sys.argv[1] == 'test':
-    NOREPLY_EMAIL = os.environ["NOREPLY_EMAIL"]
-    ADMIN_EMAILS = os.environ["ADMIN_EMAILS"].split(",")
-else:
-    NOREPLY_EMAIL, ADMIN_EMAILS = "test@ex.pl", "test@ex.pl"
+NOREPLY_EMAIL = os.environ["NOREPLY_EMAIL"]
+ADMIN_EMAILS = os.environ["ADMIN_EMAILS"].split(",")
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / "send_mail"
