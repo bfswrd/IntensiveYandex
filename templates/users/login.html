@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="p-5">
+        <h2>{{ name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% if fields.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger"> {{ error.lescape }} </div>
+                    {% endfor %} {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger"> {{ error.lescape }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% for field in form %}
+                <div class="mb-3">
+                    <div class="flex-column g-3 align-items-center">
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+                        <div class="col-auto">
+                            {{ field.label }}
+                        </div>
+                        <div class="col-auto mb-2">
+                            {% if field.help_text %}
+                                <span class="form-text">
+                                {{ field.help_text }}
+                            </span>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-auto">
+                            {{ field }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <button class="btn btnno" type="submit">{{ name }}</button>
+        </form>
+    </div>
+{% endblock %}
