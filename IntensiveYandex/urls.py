@@ -12,7 +12,7 @@ def custom_page_not_found(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("users.urls")),
+    path("users/", include("users.urls")),
     path("", include("homepage.urls")),
     path("about/", include("about.urls")),
     path('feedback/', include("feedback.urls")),
