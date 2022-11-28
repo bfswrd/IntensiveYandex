@@ -125,11 +125,11 @@ MEDIA_ROOT = BASE_DIR / "media"
 NOREPLY_EMAIL = os.environ["NOREPLY_EMAIL"]
 ADMIN_EMAILS = os.environ["ADMIN_EMAILS"].split(",")
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "send_mail"
 
 LOGIN_URL = "/"
-LOGIN_REDIRECT_URL = "/profile"
-LOGOUT_REDIRECT_URL = "/login"
+LOGIN_REDIRECT_URL = "/users/profile"
+LOGOUT_REDIRECT_URL = "/users/login"
 
 AUTH_USER_MODEL = "users.User"
