@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if alert %}<p class="alert alert-success"> {{ alert }} </p>{% endif %}
     <h2 class="mb-3">Главная страница</h2>
     <div class="row">
         {% include "includes/cat-box.html" %}

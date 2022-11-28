@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if alert %}<p class="alert alert-success"> {{ alert }} </p>
+    {% elif title %}<p class="alert alert-success"> {{ title }} </p>
+    {% endif %}
+    <div class="">
+        <h2>{{ name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% if fields.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger"> {{ error.lescape }} </div>
+                    {% endfor %} {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger"> {{ error.lescape }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% for field in form %}
+                <div class="mb-3">
+                    <div class="flex-column g-3 align-items-center">
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+                        <div class="col-auto">
+                            {{ field.label }}
+                            {% if field.field.required %} <span>*</span> {% endif %}
+                        </div>
+                        <div class="col-auto mb-2">
+                            {% if field.help_text %}
+                                <span class="form-text">
+                                {{ field.help_text }}
+                            </span>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-auto">
+                            {{ field }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if request.path == "/users/login/" %}
+                <div class="mb-4"><a href="{% url "users:signup" %}">Зарегистрироваться</a></div>
+            {% elif request.path == "/users/signup/" %}
+                <div class="mb-4"><a href="{% url "users:login" %}">Войти</a></div>
+            {% endif %}
+            <button class="btn btnno" type="submit">{% if button %}{{ button }}{% else %}{{ name }}{% endif %}</button>
+        </form>
+    </div>
+{% endblock %}

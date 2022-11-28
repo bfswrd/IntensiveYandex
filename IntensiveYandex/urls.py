@@ -12,11 +12,12 @@ def custom_page_not_found(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("users/", include("users.urls")),
     path("", include("homepage.urls")),
     path("about/", include("about.urls")),
-    path('feedback/', include('feedback.urls')),
+    path('feedback/', include("feedback.urls")),
     path("catalog/", include("catalog.urls")),
-    path('summernote/', include('django_summernote.urls')),
+    path('summernote/', include("django_summernote.urls")),
     path(r'404/', custom_page_not_found, )
 ]
 

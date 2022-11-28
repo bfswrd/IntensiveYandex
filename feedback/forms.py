@@ -15,6 +15,6 @@ class FeedbackForm(forms.ModelForm):
         }
         widgets = {
             Feedback.text.field.name: forms.Textarea(
-                attrs={"class": "form-control-my",}
+                attrs={"class": "form-control-my"}
             ),
         }

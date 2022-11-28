@@ -128,6 +128,12 @@
     background: black;
 }
 
+.btnno:hover {
+    transition: all 0.5s ease-in 0s;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
+
 .box320 {
     position: relative;
     background: #fff;
@@ -137,6 +143,7 @@
     overflow: hidden;
     height: 320px;
     display: flex;
+    user-select: none;
 }
 
 .box320 img {
@@ -147,6 +154,37 @@
     position: absolute;
     margin-bottom: 20px;
     animation: moveX 2s linear 0s infinite alternate, moveY320 3.4s linear 0s infinite alternate;
+}
+
+.box320 img:hover {
+    scale: 1.2;
+}
+
+.box320:active p, .box320:active {
+    background: red;
+    animation: color 0.2s ease infinite;
+}
+
+@keyframes color {
+    0% {
+        color: blue;
+        background: red;
+        scale: 1.05;
+    }
+    33% {
+        color: red;
+        background: green;
+        scale: 1.06;
+    }
+    66% {
+        color: green;
+        background: blue;
+        scale: 1.04;
+    }
+    100% {
+        color: blue;
+        background: red;
+    }
 }
 
 @keyframes moveX {
@@ -178,7 +216,42 @@
     min-height: 100px;
     height: max-content;
     display: flex;
+}
 
+
+.btn-login {
+    border: 1px solid black;
+    border-radius: 20px 5px;
+}
+
+@keyframes scale {
+    50% {
+        scale: 1.10;
+    }
+    100% {
+        scale: 1.00;
+    }
+}
+
+.btn-login:hover {
+    animation: scale 1.5s;
+    border-radius: 20px 5px;
+    transition: all 0.5s ease-in 0s;
+    color: white;
+    background: black;
+}
+
+.btn-dropdown:hover {
+    transition: all 0.5s ease-in 0s;
+    scale: 1.03;
+    border: 1px solid black;
+    border-radius: 20px 5px;
+    color: black;
+    background: white;
+}
+
+.btn-dropdown:active {
+    background: gray;
 }
 
 .flex {
