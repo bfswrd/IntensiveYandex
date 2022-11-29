@@ -12,11 +12,15 @@ class UserCreationForm(forms.ModelForm):
         model = User
         fields = ("email", "birthday", "first_name",
                   "last_name")
+        widgets = {
+            "birthday": forms.DateInput(attrs={"type": "date",
+                                               'id': 'datetimepicker12'})
+        }
 
     def clean_password2(self):
         cd = self.cleaned_data
         if cd["password1"] != cd["password2"]:
-            raise forms.ValidationError("Passwords don\"t match.")
+            raise forms.ValidationError("Passwords don\'t match.")
         return cd["password2"]
 
     def save(self, commit=True):
@@ -31,6 +35,10 @@ class UserChangeForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ("email", "birthday", "first_name",)
+        widgets = {
+            "birthday": forms.DateInput(attrs={"type": "date",
+                                               'id': 'datetimepicker12'})
+        }
 
     def clean_email(self):
         return self.data["email"]
