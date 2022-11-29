@@ -1,13 +1,12 @@
-from django.contrib.auth.views import (
-    LoginView, LogoutView,
-    PasswordChangeView,
-    PasswordResetConfirmView,
-    PasswordResetView)
-from django.urls import path, reverse_lazy, re_path
+from django.contrib.auth.views import (LoginView, LogoutView,
+                                       PasswordChangeView,
+                                       PasswordResetConfirmView,
+                                       PasswordResetView)
+from django.urls import path, re_path, reverse_lazy
 from django.views.generic import RedirectView
 
 from homepage.views import Home
-from users.views import Profile, signup, user_list, user_detail
+from users.views import Profile, signup, user_detail, user_list
 
 app_name = "users"
 
@@ -61,12 +60,12 @@ urlpatterns = [
             "button": "Подтвердить",
         }
     ),
-         name="password_reset_confirm"),
+        name="password_reset_confirm"),
     path("reset/done/", Home.as_view(
         extra_context={
             "alert": "Пароль сброшен"
         }
     ),
-         name="password_reset_complete"),
+        name="password_reset_complete"),
     path("", RedirectView.as_view(url=reverse_lazy("homepage:home")))
 ]

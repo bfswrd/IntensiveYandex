@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render, reverse, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.views import View
 from django.views.generic.base import ContextMixin
 
