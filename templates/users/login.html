@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.2.7/js/tempus-dominus.js" integrity="sha512-V8ISAL8eGy+JL1tfkBk8miHoaGECx2XjyHsMWQReF9ITfHJgZI+iyHbFUZyx1j+qxt/HkHorPXsOtLUOarVceQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {% if alert %}<p class="alert alert-success"> {{ alert }} </p>
     {% elif title %}<p class="alert alert-success"> {{ title }} </p>
     {% endif %}
@@ -52,4 +53,11 @@
             <button class="btn btnno" type="submit">{% if button %}{{ button }}{% else %}{{ name }}{% endif %}</button>
         </form>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker12').datetimepicker({
+                format: 'DD.MM.YYYY' /*remove this line if you want to use time as well */
+            });
+        });
+    </script>
 {% endblock %}
