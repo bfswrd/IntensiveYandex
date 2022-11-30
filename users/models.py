@@ -42,6 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     birthday = models.DateField(
         "День рождения",
         null=True,
+        blank=True,
         validators=[
             date_validator
         ]
