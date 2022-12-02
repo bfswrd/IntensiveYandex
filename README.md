@@ -1,5 +1,8 @@
 ![project workflow](https://github.com/bfswrd/IntensiveYandex/actions/workflows/python-package.yml/badge.svg)
 
+
+# Учебный проект Яндекс Интенсивы джанго 2022 осень
+
 # Оглавление
 
 * [Запуск](#Запуск)
