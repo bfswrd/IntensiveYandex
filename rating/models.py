@@ -8,7 +8,6 @@ class RatingManager(models.Manager):
         try:
             return self.get(user_id=user_id, item_id=item_id).rating
         except:
-            print("Пошел нахуй")
             return None
 
 
