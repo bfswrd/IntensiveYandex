@@ -1,9 +1,9 @@
-from django.shortcuts import get_object_or_404, render
-from django.views.generic import DetailView, FormView
+from django.shortcuts import render, get_object_or_404, reverse
+from django.views.generic import FormView
 from catalog.models import Item
 from rating.forms import RatingForm
 from rating.models import Rating
-from django.shortcuts import reverse
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def item_list(request):
@@ -29,20 +29,27 @@ class ItemDetail(FormView):
         return super().post(request, *args, **kwargs)
 
     def get_initial(self):
-        return {"rating": Rating.objects.get_or_none_rating(
-            self.request.user.id, self.kwargs["pk"]), }
+        if self.request.method == "GET":
+            return {"rating": Rating.objects.get_or_none_rating(
+                self.request.user.id, self.kwargs["pk"]), }
 
     def form_valid(self, form):
         rating = form.cleaned_data["rating"]
         user_id = self.request.user.id
         item_id = self.kwargs["pk"]
-        if Rating.objects.get_or_none_rating(
-                self.request.user.id, self.kwargs["pk"]):
-            Rating.objects.update(
-                rating=rating, user_id=user_id, item_id=item_id)
-        else:
+        update_item = Item.objects.select_for_update().get(pk=item_id)
+        try:
+            rating_before = Rating.objects.select_for_update(
+            ).get(user_id=user_id, item_id=item_id)
+            update_item.total_rating += rating - rating_before.rating
+            rating_before.rating = rating
+            rating_before.save()
+        except ObjectDoesNotExist:
             Rating.objects.create(
                 rating=rating, user_id=user_id, item_id=item_id)
+            update_item.total_rating += rating
+            update_item.count_rating += 1
+        update_item.save()
         return super().form_valid(form)
 
     def get_success_url(self):
