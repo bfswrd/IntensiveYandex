@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "feedback.apps.FeedbackConfig",
     "users.apps.UsersConfig",
     "rating.apps.RatingConfig",
+    "Core.apps.CoreConfig",
 
     "django_summernote",
     "sorl.thumbnail",
