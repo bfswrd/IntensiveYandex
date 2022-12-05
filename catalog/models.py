@@ -74,6 +74,16 @@ class Item(CommonCatalog):
         help_text="Введите теги товара, их может быть очень много"
     )
 
+    total_rating = models.PositiveBigIntegerField(
+        default=0,
+        verbose_name="Общая сумма оценок",
+    )
+
+    count_rating = models.PositiveIntegerField(
+        default=0,
+        verbose_name="Общее количество оценок"
+    )
+
     class Meta:
         verbose_name = "товар"
         verbose_name_plural = "Товары"
