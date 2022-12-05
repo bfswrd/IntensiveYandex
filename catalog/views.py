@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404, render, reverse
 from django.views.generic import FormView
+
 from catalog.models import Item
 from rating.forms import RatingForm
 from rating.models import Rating
-from django.core.exceptions import ObjectDoesNotExist
 
 
 def item_list(request):

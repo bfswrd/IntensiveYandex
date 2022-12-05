@@ -1,6 +1,7 @@
 from django.db import models
-from users.models import User
+
 from catalog.models import Item
+from users.models import User
 
 
 class RatingManager(models.Manager):
