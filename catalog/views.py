@@ -1,15 +1,15 @@
 from django.shortcuts import get_object_or_404, render
-
+from django.views.generic import ListView
 from catalog.models import Item
 
 
-def item_list(request):
-    items = Item.objects.published().order_by("category__name", "name")
+class ItemListView(ListView):
+    model = Item
+    template_name = "catalog/item_list.html"
+    context_object_name = "items"
 
-    context = {
-        "items": items,
-    }
-    return render(request, "catalog/item_list.html", context=context)
+    def get_queryset(self):
+        return Item.objects.published()
 
 
 def item_detail(request, pk: int):

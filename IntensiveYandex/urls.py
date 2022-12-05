@@ -18,7 +18,7 @@ urlpatterns = [
     path('feedback/', include("feedback.urls")),
     path("catalog/", include("catalog.urls")),
     path('summernote/', include("django_summernote.urls")),
-    path(r'404/', custom_page_not_found, )
+    path(r'404/', custom_page_not_found,)
 ]
 
 handler404 = "Core.views.page_not_found_view"
