@@ -45,3 +45,15 @@
         {% endif %}
     </div>
 </div>
+<div class="marquee">
+	<div class="static-text">Сегодня др у </div>
+	<div>
+	<marquee>
+		{% for di in birthday_users %}
+			{% for key, value in di.items %}
+				<p>{{ value }}</p>
+			{% endfor %}
+		{% endfor %} \
+	</marquee>
+	</div>
+</div>
