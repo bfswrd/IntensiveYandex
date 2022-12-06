@@ -1,19 +1,19 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404, render, reverse
-from django.views.generic import FormView
+from django.views.generic import FormView, ListView
 
 from catalog.models import Item
 from rating.forms import RatingForm
 from rating.models import Rating
 
 
-def item_list(request):
-    items = Item.objects.published().order_by("category__name", "name")
+class ItemListView(ListView):
+    model = Item
+    template_name = "catalog/item_list.html"
+    context_object_name = "items"
 
-    context = {
-        "items": items,
-    }
-    return render(request, "catalog/item_list.html", context=context)
+    def get_queryset(self):
+        return Item.objects.published()
 
 
 class ItemDetail(FormView):

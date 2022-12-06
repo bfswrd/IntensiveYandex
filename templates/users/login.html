@@ -46,9 +46,9 @@
                 </div>
             {% endfor %}
             {% if request.path == "/users/login/" %}
-                <div class="mb-4"><a href="{% url "users:signup" %}">Зарегистрироваться</a></div>
+                <div class="mb-4"><a href="{% url 'users:signup' %}">Зарегистрироваться</a></div>
             {% elif request.path == "/users/signup/" %}
-                <div class="mb-4"><a href="{% url "users:login" %}">Войти</a></div>
+                <div class="mb-4"><a href="{% url 'users:login' %}">Войти</a></div>
             {% endif %}
             <button class="btn btnno" type="submit">{% if button %}{{ button }}{% else %}{{ name }}{% endif %}</button>
         </form>
