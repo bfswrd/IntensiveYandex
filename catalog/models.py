@@ -59,7 +59,7 @@ class Item(CommonCatalog):
             validate_must_be_param("превосходно", "роскошно")
         ],
         verbose_name="Описание",
-        help_text=f"Введите описание товара"
+        help_text="Введите описание товара"
     )
 
     category = models.ForeignKey(

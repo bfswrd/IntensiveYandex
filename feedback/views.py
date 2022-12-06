@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.core.mail import send_mail
-from django.views.generic import FormView
 from django.shortcuts import redirect
+from django.views.generic import FormView
 
 from feedback import forms
 from feedback.models import Feedback
@@ -28,7 +28,7 @@ class FeedbackView(FormView):
 
     def send_mail(self, valid_data):
         send_mail(
-            f"Обратная связь",
+            "Обратная связь",
             message=valid_data.get("text"),
             from_email=settings.NOREPLY_EMAIL,
             recipient_list=(*settings.ADMIN_EMAILS,),

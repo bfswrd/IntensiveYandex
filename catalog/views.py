@@ -1,5 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import get_object_or_404, render, reverse
+from django.shortcuts import get_object_or_404, reverse
 from django.views.generic import FormView, ListView
 
 from catalog.models import Item

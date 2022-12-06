@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 from catalog.models import Item
@@ -8,7 +9,7 @@ class RatingManager(models.Manager):
     def get_or_none_rating(self, user_id, item_id,):
         try:
             return self.get(user_id=user_id, item_id=item_id).rating
-        except:
+        except ObjectDoesNotExist:
             return None
 
 

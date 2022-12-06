@@ -12,7 +12,7 @@ class CatalogURLTests(TestCase):
         cls.category = Category.objects.create(name="Тест1", slug="test_1")
         cls.tag = Tag.objects.create(name="Тест1", slug="test_1")
         cls.item = Item(
-            name=f"Позитивный",
+            name="Позитивный",
             text="Роскошно",
             category=Category.objects.get(id=1),
         )
@@ -49,7 +49,7 @@ class TaskPageTests(TestCase):
         cls.category = Category.objects.create(name="Тест1", slug="test_1")
         cls.tag = Tag.objects.create(name="Тест1", slug="test_1")
         cls.item = Item(
-            name=f"Позитивный",
+            name="Позитивный",
             text="Роскошно",
             category=Category.objects.get(id=1),
         )
