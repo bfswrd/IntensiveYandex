@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "feedback.apps.FeedbackConfig",
     "users.apps.UsersConfig",
+    "rating.apps.RatingConfig",
+    "Core.apps.CoreConfig",
 
     "django_summernote",
     "sorl.thumbnail",
@@ -73,6 +75,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+
+                "Core.context_processors.birthday.birthday_users",
             ],
         },
     },

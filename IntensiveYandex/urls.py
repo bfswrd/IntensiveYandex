@@ -15,10 +15,10 @@ urlpatterns = [
     path("users/", include("users.urls")),
     path("", include("homepage.urls")),
     path("about/", include("about.urls")),
-    path('feedback/', include("feedback.urls")),
+    path("feedback/", include("feedback.urls")),
     path("catalog/", include("catalog.urls")),
-    path('summernote/', include("django_summernote.urls")),
-    path(r'404/', custom_page_not_found, )
+    path("summernote/", include("django_summernote.urls")),
+    path(r"404/", custom_page_not_found,)
 ]
 
 handler404 = "Core.views.page_not_found_view"
@@ -26,4 +26,4 @@ handler404 = "Core.views.page_not_found_view"
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
-    urlpatterns += path('__debug__/', include('debug_toolbar.urls')),
+    urlpatterns += path("__debug__/", include("debug_toolbar.urls")),

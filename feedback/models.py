@@ -4,7 +4,7 @@ from django.db import models
 class Feedback(models.Model):
     text = models.TextField(
         verbose_name="Обратная связь",
-        help_text=f"Введите обращение",
+        help_text="Введите обращение",
     )
 
     created_on = models.DateTimeField(

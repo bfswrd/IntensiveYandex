@@ -1,26 +1,26 @@
 {% load static %}
 <div class="navbar border-bottom mb-3">
     <div class="col-1">
-        <a href="{% url "homepage:home" %}">
+        <a href="{% url 'homepage:home' %}">
             <img src="{% static 'favicon/android-chrome-192x192.png' %}" alt="" style="width: 64px; height: 64px;">
         </a>
     </div>
     <div class="col-6"></div>
     <div class="col-1 text-center">
-        <a class="nav-link {% if request.path == "/" %} active {% endif %}" href=
-                "{% url "homepage:home" %}">Главная</a>
+        <a class="nav-link {% if request.path == '/' %} active {% endif %}" href=
+                "{% url 'homepage:home' %}">Главная</a>
     </div>
     <div class="col-1 text-center">
-        <a class="nav-link {% if request.path == "/about/" %} active {% endif %}" href=
-                "{% url "about:description" %}">О нас</a>
+        <a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href=
+                "{% url 'about:description' %}">О нас</a>
     </div>
     <div class="col-1 text-center">
-        <a class="nav-link {% if request.path == "/feedback/" %} active {% endif %}" href=
-                "{% url "feedback:feedback" %}">Связаться</a>
+        <a class="nav-link {% if request.path == '/feedback/' %} active {% endif %}" href=
+                "{% url 'feedback:feedback' %}">Связаться</a>
     </div>
     <div class="col-1 text-center">
-        <a class="nav-link {% if request.path == "/catalog/" %} active {% endif %}" href=
-                "{% url "catalog:item_list" %}">Каталог</a>
+        <a class="nav-link {% if request.path == '/catalog/' %} active {% endif %}" href=
+                "{% url 'catalog:item_list' %}">Каталог</a>
     </div>
     <div class="col-1 text-center">
         {% if user.is_authenticated %}
@@ -31,11 +31,11 @@
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="{% url "users:profile" %}">Профиль</a></li>
-                    <li><a class="dropdown-item" href="{% url "users:password_change" %}">Изменить пароль</a></li>
-                    <li><a class="dropdown-item" href="{% url "users:password_reset" %}">Сбросить пароль</a></li>
-                    <li><a class="dropdown-item" href="{% url "users:user_list" %}">Все пользователи</a></li>
-                    <li><a class="dropdown-item" href="{% url "users:logout" %}">Выйти</a></li>
+                    <li><a class="dropdown-item" href="{% url 'users:profile' %}">Профиль</a></li>
+                    <li><a class="dropdown-item" href="{% url 'users:password_change' %}">Изменить пароль</a></li>
+                    <li><a class="dropdown-item" href="{% url 'users:password_reset' %}">Сбросить пароль</a></li>
+                    <li><a class="dropdown-item" href="{% url 'users:user_list' %}">Все пользователи</a></li>
+                    <li><a class="dropdown-item" href="{% url 'users:logout' %}">Выйти</a></li>
                 </ul>
             </div>
         {% else %}
@@ -45,3 +45,18 @@
         {% endif %}
     </div>
 </div>
+{% if birthday_users %}
+<div class="marquee">
+	<div>
+        <span class="static-text">Сегодня др у </span>
+        <marquee>
+            {% for di in birthday_users %}
+                {% for name, value in di.items %}
+                    <p> {{ value }}</p>
+                {% endfor %}
+                {% if not forloop.last %}&nbsp/&nbsp{% endif %}
+            {% endfor %}
+        </marquee>
+    </div>
+</div>
+{% endif %}

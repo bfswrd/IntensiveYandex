@@ -24,7 +24,7 @@ class ItemModelsTest(TestCase):
                 with self.assertRaises(ValidationError):
                     item_count = Item.objects.count()
                     self.item = Item(
-                        name=f"Негативный тест",
+                        name="Негативный тест",
                         text=value,
                         category=Category.objects.get(id=1),
                     )

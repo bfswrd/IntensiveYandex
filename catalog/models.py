@@ -59,7 +59,7 @@ class Item(CommonCatalog):
             validate_must_be_param("превосходно", "роскошно")
         ],
         verbose_name="Описание",
-        help_text=f"Введите описание товара"
+        help_text="Введите описание товара"
     )
 
     category = models.ForeignKey(
@@ -72,6 +72,16 @@ class Item(CommonCatalog):
         Tag, related_name="tag",
         verbose_name="Теги",
         help_text="Введите теги товара, их может быть очень много"
+    )
+
+    total_rating = models.PositiveBigIntegerField(
+        default=0,
+        verbose_name="Общая сумма оценок",
+    )
+
+    count_rating = models.PositiveIntegerField(
+        default=0,
+        verbose_name="Общее количество оценок"
     )
 
     class Meta:
