@@ -14,7 +14,7 @@ class UserCreationForm(forms.ModelForm):
                   "last_name")
         widgets = {
             "birthday": forms.DateInput(attrs={"type": "date",
-                                               'id': 'datetimepicker12'})
+                                               "id": "datetimepicker12"})
         }
 
     def clean_password2(self):
@@ -37,7 +37,7 @@ class UserChangeForm(forms.ModelForm):
         fields = ("email", "birthday", "first_name", "last_name",)
         widgets = {
             "birthday": forms.DateInput(attrs={"type": "date",
-                                               'id': 'datetimepicker12'})
+                                               "id": "datetimepicker12"})
         }
 
     def clean_email(self):

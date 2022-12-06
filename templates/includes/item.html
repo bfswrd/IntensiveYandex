@@ -5,7 +5,7 @@
         </div>
     {% endif %}
     <div class="offer-item_title">
-        <a class="link-dark" style="text-decoration: none" href="{% url "catalog:item_detail" pk=item.pk %}">
+        <a class="link-dark" style="text-decoration: none" href="{% url 'catalog:item_detail' pk=item.pk %}">
             <h5>
                 {{ item.name }}
             </h5>
@@ -24,7 +24,7 @@
         <span class="offer-item_dd">{{ item.text|striptags|truncatewords:10 }}</span>
     </div>
     <div class="offer-item_part">
-        <a href="{% url "catalog:item_detail" pk=item.pk %}">
+        <a href="{% url 'catalog:item_detail' pk=item.pk %}">
             <button class="btn">Перейти</button>
         </a>
     </div>
