@@ -54,12 +54,12 @@ class ItemDetail(FormView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('catalog:item_detail', kwargs={"pk": self.kwargs["pk"]})
+        return reverse("catalog:item_detail", kwargs={"pk": self.kwargs["pk"]})
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data["item"] = get_object_or_404(
-            self.queryset(), pk=self.kwargs.get('pk'))
+            self.queryset(), pk=self.kwargs.get("pk"))
         return data
 
     def get_queryset(self):

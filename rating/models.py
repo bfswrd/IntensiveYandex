@@ -14,11 +14,11 @@ class RatingManager(models.Manager):
 
 class Rating(models.Model):
     RATINGS = [
-        (1, 'Ненависть'),
-        (2, 'Неприязнь'),
-        (3, 'Нейтрально'),
-        (4, 'Обожание'),
-        (5, 'Любовь'),
+        (1, "Ненависть"),
+        (2, "Неприязнь"),
+        (3, "Нейтрально"),
+        (4, "Обожание"),
+        (5, "Любовь"),
     ]
     rating = models.PositiveSmallIntegerField(
         choices=RATINGS,
@@ -42,7 +42,7 @@ class Rating(models.Model):
         verbose_name_plural = "Оценки"
         constraints = (
             models.UniqueConstraint(
-                fields=['rating', 'user', 'item'], name='unique_user_item'),
+                fields=["rating", "user", "item"], name="unique_user_item"),
         )
 
     def __str__(self) -> str:
