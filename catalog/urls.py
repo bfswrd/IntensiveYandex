@@ -6,6 +6,6 @@ app_name = "catalog"
 urlpatterns = [
     path("", catalog.views.ItemListView.as_view(), name="item_list"),
     # Start with 1, 0 is incorrect
-    re_path(r"^(?P<pk>[1-9]\d*)/$", catalog.views.item_detail,
+    re_path(r"^(?P<pk>[1-9]\d*)/$", catalog.views.ItemDetail.as_view(),
             name="item_detail"),
 ]
