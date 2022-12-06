@@ -45,15 +45,18 @@
         {% endif %}
     </div>
 </div>
+{% if birthday_users %}
 <div class="marquee">
-	<div class="static-text">Сегодня др у </div>
 	<div>
-	<marquee>
-		{% for di in birthday_users %}
-			{% for key, value in di.items %}
-				<p>{{ value }}</p>
-			{% endfor %}
-		{% endfor %} \
-	</marquee>
-	</div>
+        <span class="static-text">Сегодня др у </span>
+        <marquee>
+            {% for di in birthday_users %}
+                {% for name, value in di.items %}
+                    <p> {{ value }}</p>
+                {% endfor %}
+                {% if not forloop.last %}&nbsp/&nbsp{% endif %}
+            {% endfor %}
+        </marquee>
+    </div>
 </div>
+{% endif %}
