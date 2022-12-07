@@ -54,7 +54,8 @@ class ItemDetail(FormView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse("catalog:item_detail", kwargs={"pk": self.kwargs["pk"]})
+        return reverse("users:user_detail",
+                       kwargs={"pk": self.request.user.id})
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
